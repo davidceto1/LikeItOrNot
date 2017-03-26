@@ -1,0 +1,43 @@
+﻿<h3>Request Image</h3>
+
+<p>
+    To request an Image just click on the button.
+</p>
+
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <button ng-click="getImage()" class="btn" style="width:32%">Request</button>
+
+            <button ng-click="listLikedImages()" class="btn" style="width:33%">List liked images</button>
+            <button ng-click="listDislikedImages()" class="btn" style="width:33%">List disliked images</button>
+        </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2" ng-show="showImage">
+            <img id="randomImg" src="{{imagePath}}" class="img-responsive img-thumbnail" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2" ng-show="showImage" style="display: inline;">
+            <button ng-click="likeImage()" class="btn btn-success" style="width:49%"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+            <button ng-click="dislikeImage()" class="btn btn-danger"  style="width:50%"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+        </div>
+    </div>
+
+
+        <div class="col-md-4"  ng-repeat="image in likedImages" ng-show="!showImage">
+                
+            <img src="/images/{{image.Number}}.JPG" class="img-responsive img-thumbnail" />
+        </div>
+        <div class="row">
+            <div class="alert-info" ng-show="nolikedimages">There are not images liked yet.</div>
+        </div>
+
+        <div class="col-md-4"  ng-repeat="image in dislikedImages" ng-show="!showImage">
+                
+            <img src="/images/{{image.Number}}.JPG" class="img-responsive img-thumbnail" />
+        </div>
+        <div class="row">
+            <div class="alert-info" ng-show="nodislikedimages">There are not images disliked yet.</div>
+        </div>
+        </div>
